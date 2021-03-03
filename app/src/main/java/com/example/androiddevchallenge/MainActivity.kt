@@ -108,7 +108,6 @@ fun MyApp(timerValue: Int, timer: CountDownTimer) {
                             .requiredHeight(size)
                             .background(Color.Blue),
                     ) {
-
                     }
                 }
             }
@@ -134,14 +133,15 @@ fun MyApp(timerValue: Int, timer: CountDownTimer) {
                     Text(text = "01:00", style = TextStyle(color = Color.White, fontSize = 32.sp))
                 }
 
-                Button(onClick = {
-                    timer.start()
-                    state = !state
-                }) {
+                Button(
+                    onClick = {
+                        timer.start()
+                        state = !state
+                    }
+                ) {
                     Text(text = "Start")
                 }
             }
-
         }
     }
 }
