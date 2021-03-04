@@ -13,15 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.androiddevchallenge.ui.theme
+package com.example.androiddevchallenge
 
-import androidx.compose.ui.graphics.Color
+import java.text.DecimalFormat
+import java.util.concurrent.TimeUnit
 
-val purple200 = Color(0xFFBB86FC)
-val purple500 = Color(0xFF6200EE)
-val purple700 = Color(0xFF3700B3)
-val teal200 = Color(0xFF03DAC5)
-
-val red = Color(0xFFE66958)
-val darkBlue = Color(0xFF4B5169)
-val transparentWhite = Color(0xB3FFFFFF)
+fun Long.toReadableTime(): String {
+    val timerFormat = DecimalFormat("00")
+    val minute = TimeUnit.MILLISECONDS.toMinutes(this)
+    val remainingSeconds = this - TimeUnit.MINUTES.toMillis(minute)
+    val second = TimeUnit.MILLISECONDS.toSeconds(remainingSeconds)
+    return "${timerFormat.format(minute)}:${timerFormat.format(second)}"
+}
